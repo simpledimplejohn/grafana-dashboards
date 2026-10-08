@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 110" width="760" height="110">
+  <!-- Title + subtitle in embedded web fonts (HTML can't load fonts when Grafana sanitizes), with falling drips. -->
+  <style>
+    @font-face{font-family:'Nosifer';src:url(data:font/woff2;base64,{{FONT:Nosifer}}) format('woff2')}
+    @font-face{font-family:'Creepster';src:url(data:font/woff2;base64,{{FONT:Creepster}}) format('woff2')}
+    .t{font-family:'Nosifer',cursive;font-size:38px;fill:#ff7518}
+    .s{font-family:'Creepster',cursive;font-size:21px;letter-spacing:1px;fill:#b48cff}
+    .d{animation:drip 4.2s ease-in infinite;opacity:0;transform-box:fill-box;transform-origin:50% 0}
+    .d2{animation-delay:1.5s}.d3{animation-delay:2.8s}.d4{animation-delay:.7s}
+    @keyframes drip{0%{transform:translateY(0) scaleY(.4);opacity:0}12%{opacity:1;transform:translateY(0) scaleY(1)}70%{opacity:.9;transform:translateY(30px) scaleY(1.3)}82%,100%{opacity:0;transform:translateY(40px)}}
+  </style>
+  <defs>
+    <filter id="glow" x="-10%" y="-40%" width="120%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/>
+      <feFlood flood-color="#ff4d00" flood-opacity=".75"/><feComposite in2="b" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowP" x="-10%" y="-40%" width="120%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="b"/>
+      <feFlood flood-color="#9650ff" flood-opacity=".6"/><feComposite in2="b" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <text class="t" x="6" y="52" textLength="740" lengthAdjust="spacingAndGlyphs" filter="url(#glow)">Spooky Host Metrics</text>
+  <g fill="#ff4d00">
+    <ellipse class="d" cx="70" cy="60" rx="2.6" ry="4.5"/>
+    <ellipse class="d d2" cx="330" cy="60" rx="2.6" ry="4.5"/>
+    <ellipse class="d d3" cx="610" cy="60" rx="2.6" ry="4.5"/>
+    <ellipse class="d d4" cx="470" cy="60" rx="2.2" ry="4"/>
+  </g>
+  <text class="s" x="8" y="96" filter="url(#glowP)">where CPUs scream, memory moans &amp; disks rattle their chains</text>
+</svg>

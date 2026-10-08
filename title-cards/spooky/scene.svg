@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 160" preserveAspectRatio="xMidYMid slice">
+  <!-- Background layer: night sky, twinkling stars, glowing moon, drifting fog. -->
+  <style>
+    .tw1{animation:tw 4s ease-in-out infinite}
+    .tw2{animation:tw 5.5s ease-in-out infinite 1.2s}
+    .tw3{animation:tw 3.2s ease-in-out infinite .6s}
+    .fogA{animation:fog 38s linear infinite}
+    .fogB{animation:fog 61s linear infinite reverse}
+    .halo{animation:halo 6s ease-in-out infinite alternate}
+    @keyframes tw{0%,100%{opacity:.9}50%{opacity:.25}}
+    @keyframes fog{from{transform:translateX(0)}to{transform:translateX(-1600px)}}
+    @keyframes halo{from{opacity:.55}to{opacity:.9}}
+  </style>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#07040d"/><stop offset=".55" stop-color="#1a0b2b"/><stop offset="1" stop-color="#2b0f14"/>
+    </linearGradient>
+    <radialGradient id="moon" cx=".38" cy=".38" r=".7">
+      <stop offset="0" stop-color="#fffbe6"/><stop offset=".6" stop-color="#f1df9c"/><stop offset="1" stop-color="#cdb26a"/>
+    </radialGradient>
+    <radialGradient id="moonHalo">
+      <stop offset=".3" stop-color="#ffeeb0" stop-opacity=".45"/><stop offset="1" stop-color="#ffc878" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <rect width="1600" height="160" fill="url(#sky)"/>
+
+  <g fill="#fff">
+    <g class="tw1"><circle cx="190" cy="22" r="1.2"/><circle cx="640" cy="48" r="1"/><circle cx="1180" cy="30" r="1.3"/><circle cx="1490" cy="14" r="1"/></g>
+    <g class="tw2"><circle cx="420" cy="12" r="1"/><circle cx="880" cy="20" r="1.4" fill="#ffe9c4"/><circle cx="1330" cy="58" r="1"/><circle cx="90" cy="70" r="1"/></g>
+    <g class="tw3"><circle cx="560" cy="84" r="1" fill="#d9c8ff"/><circle cx="1060" cy="64" r="1"/><circle cx="1400" cy="36" r="1.2"/><circle cx="300" cy="44" r="1"/></g>
+  </g>
+
+  <circle class="halo" cx="1015" cy="36" r="70" fill="url(#moonHalo)"/>
+  <circle cx="1015" cy="36" r="23" fill="url(#moon)"/>
+  <circle cx="1007" cy="31" r="4" fill="#d8c27c" opacity=".5"/><circle cx="1024" cy="44" r="3" fill="#d8c27c" opacity=".45"/>
+
+  <g filter="url(#blur)" fill="#b9a6d9">
+    <g class="fogA" opacity=".28">
+      <ellipse cx="160" cy="150" rx="220" ry="18"/><ellipse cx="620" cy="155" rx="260" ry="16"/><ellipse cx="1100" cy="150" rx="230" ry="18"/><ellipse cx="1500" cy="155" rx="200" ry="15"/>
+      <ellipse cx="1760" cy="150" rx="220" ry="18"/><ellipse cx="2220" cy="155" rx="260" ry="16"/><ellipse cx="2700" cy="150" rx="230" ry="18"/><ellipse cx="3100" cy="155" rx="200" ry="15"/>
+    </g>
+    <g class="fogB" opacity=".18">
+      <ellipse cx="380" cy="158" rx="260" ry="14"/><ellipse cx="900" cy="160" rx="240" ry="15"/><ellipse cx="1350" cy="158" rx="260" ry="14"/>
+      <ellipse cx="1980" cy="158" rx="260" ry="14"/><ellipse cx="2500" cy="160" rx="240" ry="15"/><ellipse cx="2950" cy="158" rx="260" ry="14"/>
+    </g>
+  </g>
+</svg>

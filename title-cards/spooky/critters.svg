@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 160" preserveAspectRatio="xMidYMid slice">
+  <!-- Overlay layer (drawn on top of the title/variables): bat, ghost, BOO!, red scare flash.
+       Movement keyframes ({{KEYFRAMES}}) are generated from timeline.json by build_cards.py. -->
+  <style>
+    @font-face{font-family:'Nosifer';src:url(data:font/woff2;base64,{{FONT:Nosifer}}) format('woff2')}
+    .batPath{animation:batPath 64s linear infinite}
+    .batSpin{animation:batSpin 64s linear infinite}
+    .fly{animation:poseFly 64s step-end infinite}
+    .sleep{opacity:0;animation:poseSleep 64s step-end infinite}
+    .wing{transform-box:fill-box;transform-origin:50% 70%;animation:flap .2s ease-in-out infinite alternate}
+    .bob{animation:bob .9s ease-in-out infinite alternate}
+    .sway{animation:sway 3.2s ease-in-out infinite alternate}
+    .z{opacity:0;animation:zz 2.4s ease-out infinite;font:italic bold 13px Georgia,serif;fill:#c9a0ff}
+    .z2{animation-delay:.8s;font-size:11px}.z3{animation-delay:1.6s;font-size:9px}
+    .gPath{animation:gPath 90s ease-in-out infinite}
+    .gSize{animation:gSize 90s ease-in-out infinite}
+    .gFade{opacity:0;animation:gFade 90s ease-in-out infinite}
+    .gBob{animation:bob 1.6s ease-in-out infinite alternate}
+    .cute{animation:cute 90s step-end infinite}
+    .scary{opacity:0;animation:scary 90s step-end infinite}
+    .flash{opacity:0;animation:flash 90s linear infinite}
+    .boo{opacity:0;animation:boo 90s linear infinite;transform-box:fill-box;transform-origin:center;
+         font-family:'Nosifer',cursive;font-size:56px;fill:#ff1a1a}
+
+    @keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(.25)}}
+    @keyframes bob{from{transform:translateY(-3px)}to{transform:translateY(3px)}}
+    @keyframes sway{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+    @keyframes zz{0%{opacity:0;transform:translate(0,0)}25%{opacity:1}100%{opacity:0;transform:translate(14px,-12px)}}
+    /* Bat poses, 64s: sleeping 10-18s and 45-52s, flying otherwise */
+    @keyframes poseFly{0%{opacity:1}15.6%{opacity:0}28.1%{opacity:1}70.3%{opacity:0}81.2%{opacity:1}}
+    @keyframes poseSleep{0%{opacity:0}15.6%{opacity:1}28.1%{opacity:0}70.3%{opacity:1}81.2%{opacity:0}}
+    /* Ghost scare, 90s: cute face except 82.4-85.2% */
+    @keyframes cute{0%{opacity:1}82.4%{opacity:0}85.2%{opacity:1}}
+    @keyframes scary{0%{opacity:0}82.4%{opacity:1}85.2%{opacity:0}}
+    @keyframes flash{0%,82.4%{opacity:0}83%{opacity:1}84.6%{opacity:.8}86%,100%{opacity:0}}
+    @keyframes boo{0%,82.6%{opacity:0;transform:scale(.2)}83%{opacity:1;transform:scale(1.15)}84.5%{opacity:1;transform:scale(1)}85.2%,100%{opacity:0;transform:scale(1.6)}}
+    {{KEYFRAMES}}
+  </style>
+  <defs>
+    <filter id="batGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="b"/>
+      <feFlood flood-color="#ff7518" flood-opacity=".8"/><feComposite in2="b" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ghostGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/>
+      <feFlood flood-color="#c8d7ff" flood-opacity=".7"/><feComposite in2="b" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="flashG">
+      <stop offset="0" stop-color="#780000" stop-opacity=".15"/><stop offset="1" stop-color="#3c0000" stop-opacity=".85"/>
+    </radialGradient>
+  </defs>
+
+  <rect class="flash" x="-200" y="-100" width="2000" height="360" fill="url(#flashG)"/>
+
+  <!-- Bat: batPath = position, batSpin = scale/rotation around the bat's centre -->
+  <g class="batPath"><g class="batSpin">
+    <g class="fly"><g class="bob"><g transform="translate(-27,-13.5) scale(.54)" filter="url(#batGlow)">
+      <path class="wing" d="M50 22 C40 8 22 4 4 14 C10 16 12 22 10 28 C16 24 22 26 24 32 C28 26 36 26 40 32 C42 26 46 24 50 26 Z" fill="#1b0f24" stroke="#4a2a66" stroke-width="1"/>
+      <path class="wing" d="M50 22 C60 8 78 4 96 14 C90 16 88 22 90 28 C84 24 78 26 76 32 C72 26 64 26 60 32 C58 26 54 24 50 26 Z" fill="#1b0f24" stroke="#4a2a66" stroke-width="1"/>
+      <ellipse cx="50" cy="29" rx="6" ry="10" fill="#1b0f24"/>
+      <circle cx="50" cy="19" r="6" fill="#1b0f24"/>
+      <polygon points="45,15 44,7 48.5,13" fill="#1b0f24"/><polygon points="55,15 56,7 51.5,13" fill="#1b0f24"/>
+      <circle cx="47.8" cy="18.5" r="1.3" fill="#ffcc00"/><circle cx="52.2" cy="18.5" r="1.3" fill="#ffcc00"/>
+      <polygon points="48.6,22.5 49.4,22.5 49,24.6" fill="#fff"/><polygon points="50.6,22.5 51.4,22.5 51,24.6" fill="#fff"/>
+    </g></g></g>
+    <g class="sleep"><g transform="translate(0,-17)">
+      <g class="sway"><g transform="translate(-11,0) scale(.55)" filter="url(#batGlow)">
+        <line x1="17" y1="0" x2="18" y2="7" stroke="#1b0f24" stroke-width="2"/><line x1="23" y1="0" x2="22" y2="7" stroke="#1b0f24" stroke-width="2"/>
+        <path d="M20 6 C31 8 33 30 27 43 C25 47 15 47 13 43 C7 30 9 8 20 6 Z" fill="#1b0f24" stroke="#4a2a66" stroke-width="1"/>
+        <circle cx="20" cy="47" r="6" fill="#1b0f24"/>
+        <polygon points="15.5,51 14,59 18.5,52.5" fill="#1b0f24"/><polygon points="24.5,51 26,59 21.5,52.5" fill="#1b0f24"/>
+        <path d="M16 46 q2 1.6 4 0 M20.5 46 q2 1.6 4 0" stroke="#ffcc00" stroke-width="1" fill="none"/>
+      </g></g>
+      <text class="z" x="14" y="30">z</text><text class="z z2" x="14" y="30">z</text><text class="z z3" x="14" y="30">z</text>
+    </g></g>
+  </g></g>
+
+  <!-- Ghost: gPath = position, gSize = scale/flip, gFade = visibility -->
+  <g class="gPath"><g class="gSize"><g class="gFade"><g class="gBob">
+    <g transform="translate(-30,-35)" filter="url(#ghostGlow)">
+      <path d="M30 4 C14 4 6 16 6 32 L6 62 L13 55 L20 63 L27 55 L34 63 L41 55 L48 63 L54 56 L54 32 C54 16 46 4 30 4 Z" fill="#eef0ff" fill-opacity=".92"/>
+      <g class="cute">
+        <ellipse cx="22" cy="28" rx="3.2" ry="4.2" fill="#1b0f24"/><ellipse cx="38" cy="28" rx="3.2" ry="4.2" fill="#1b0f24"/>
+        <ellipse cx="30" cy="40" rx="3" ry="3.8" fill="#1b0f24"/>
+      </g>
+      <g class="scary">
+        <polygon points="16,23 27,28 17,32" fill="#ff1a1a"/><polygon points="44,23 33,28 43,32" fill="#ff1a1a"/>
+        <path d="M17 37 L21 51 L25 42 L30 54 L35 42 L39 51 L43 37 Q30 33 17 37 Z" fill="#12060f"/>
+      </g>
+    </g>
+  </g></g></g></g>
+
+  <text class="boo" x="800" y="100" text-anchor="middle">BOO!</text>
+</svg>

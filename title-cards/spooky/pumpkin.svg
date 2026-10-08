@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 140" width="170" height="140">
+  <!-- Jack-o'-lantern with candle-flicker eyes, nose and mouth, plus a flickering glow halo. -->
+  <style>
+    .glow{animation:glow 2.7s infinite}
+    .eyeL{animation:flick 1.9s infinite}
+    .eyeR{animation:flick 2.3s infinite .4s}
+    .nose{animation:flick 2.9s infinite .2s}
+    .mouth{animation:flick 3.1s infinite .9s}
+    @keyframes glow{0%{opacity:.85}12%{opacity:.6}20%{opacity:.95}33%{opacity:.7}47%{opacity:1}58%{opacity:.65}71%{opacity:.9}86%{opacity:.75}100%{opacity:.85}}
+    @keyframes flick{0%{opacity:1}8%{opacity:.72}11%{opacity:.95}23%{opacity:.8}31%{opacity:1}44%{opacity:.6}47%{opacity:.9}62%{opacity:.78}70%{opacity:1}83%{opacity:.68}88%{opacity:.95}100%{opacity:1}}
+  </style>
+  <defs>
+    <radialGradient id="halo">
+      <stop offset="0" stop-color="#ff8c00" stop-opacity=".5"/><stop offset=".5" stop-color="#ff5a00" stop-opacity=".14"/><stop offset="1" stop-color="#ff5a00" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="fire" cx=".5" cy=".6" r=".6">
+      <stop offset="0" stop-color="#fff7b0"/><stop offset=".45" stop-color="#ffc93c"/><stop offset="1" stop-color="#ff7a00"/>
+    </radialGradient>
+    <filter id="candle" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse class="glow" cx="85" cy="92" rx="85" ry="56" fill="url(#halo)"/>
+  <g transform="translate(25,30)">
+    <path d="M57 20 C56 10 61 4 69 5 C65 9 63 13 64 21 Z" fill="#4f7a2c" stroke="#2c4a17" stroke-width="1.5"/>
+    <ellipse cx="60" cy="60" rx="55" ry="38" fill="#c9500b" stroke="#8a3306" stroke-width="2"/>
+    <ellipse cx="60" cy="60" rx="34" ry="38" fill="none" stroke="#933a07" stroke-width="2"/>
+    <ellipse cx="60" cy="60" rx="14" ry="38" fill="none" stroke="#933a07" stroke-width="2"/>
+    <ellipse cx="44" cy="40" rx="12" ry="5" fill="#ff9a4d" opacity=".35"/>
+    <g filter="url(#candle)" fill="url(#fire)" stroke="#4a1500" stroke-width="1.6">
+      <polygon class="eyeL" points="30,50 48,50 39,34"/>
+      <polygon class="eyeR" points="72,50 90,50 81,34"/>
+      <polygon class="nose" points="55,62 65,62 60,54"/>
+      <path class="mouth" d="M26 68 Q60 98 94 68 L86 73 L80 67 L73 75 L66 68 L60 77 L54 68 L47 75 L40 67 L34 73 Z"/>
+    </g>
+  </g>
+</svg>

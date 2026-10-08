@@ -1,0 +1,1414 @@
+{
+  "panels": [
+    {
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 100,
+      "options": {
+        "code": {
+          "language": "html",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap\">\n<style>\n.shm{position:relative;height:100%;min-height:150px;overflow:hidden;border-radius:10px;\n  background:linear-gradient(180deg,#07040d 0%,#1a0b2b 55%,#2b0f14 100%);border:1px solid #4a1f6b;\n  font-family:'Creepster',cursive;color:#e8e0ff;}\n.shm *{box-sizing:border-box;}\n/* sky */\n.shm-stars{position:absolute;inset:0;opacity:.7;animation:shm-twinkle 5s ease-in-out infinite;\n  background-image:radial-gradient(1px 1px at 12% 18%,#fff,transparent),radial-gradient(1px 1px at 27% 8%,#fff,transparent),\n  radial-gradient(1.5px 1.5px at 41% 30%,#ffe9c4,transparent),radial-gradient(1px 1px at 55% 12%,#fff,transparent),\n  radial-gradient(1px 1px at 68% 40%,#d9c8ff,transparent),radial-gradient(1.5px 1.5px at 83% 22%,#fff,transparent),\n  radial-gradient(1px 1px at 93% 9%,#fff,transparent),radial-gradient(1px 1px at 35% 55%,#fff,transparent);}\n.shm-moon{position:absolute;top:10px;left:62%;width:46px;height:46px;border-radius:50%;\n  background:radial-gradient(circle at 35% 35%,#fffbe6,#f1df9c 60%,#cdb26a);\n  box-shadow:0 0 24px 6px rgba(255,236,170,.35),0 0 60px 20px rgba(255,200,120,.12);}\n.shm-fog{position:absolute;left:0;bottom:-8px;width:200%;height:46px;opacity:.28;filter:blur(6px);\n  background:radial-gradient(ellipse at 10% 60%,#b9a6d9 0,transparent 40%),radial-gradient(ellipse at 35% 70%,#b9a6d9 0,transparent 35%),\n  radial-gradient(ellipse at 60% 60%,#b9a6d9 0,transparent 40%),radial-gradient(ellipse at 85% 70%,#b9a6d9 0,transparent 35%);\n  animation:shm-fog 38s linear infinite;}\n.shm-fog.b{opacity:.18;animation-duration:61s;animation-direction:reverse;bottom:-14px;}\n/* pumpkin */\n.shm-pglow{position:absolute;left:-10px;bottom:-30px;width:190px;height:150px;border-radius:50%;\n  background:radial-gradient(ellipse at center,rgba(255,140,0,.45),rgba(255,90,0,.12) 45%,transparent 70%);\n  animation:shm-glow 2.7s infinite;}\n.shm-pumpkin{position:absolute;left:16px;bottom:6px;width:130px;height:108px;}\n.shm-eye-l{animation:shm-flicker 1.9s infinite;}\n.shm-eye-r{animation:shm-flicker 2.3s infinite .4s;}\n.shm-mouth{animation:shm-flicker 3.1s infinite .9s;}\n/* text */\n.shm-stage{position:absolute;inset:0;animation:shm-shake 90s linear infinite;}\n.shm-title{position:absolute;left:170px;top:50%;transform:translateY(-58%);max-width:calc(100% - 470px);}\n.shm-h{font-family:'Nosifer',cursive;font-size:clamp(20px,2.6vw,36px);line-height:1.15;color:#ff7518;white-space:nowrap;\n  text-shadow:0 0 6px #ff4d00,0 0 18px rgba(255,100,0,.55),2px 2px 0 #3b0a00;}\n.shm-sub{margin-top:6px;font-size:clamp(13px,1.2vw,18px);letter-spacing:1px;color:#b48cff;text-shadow:0 0 8px rgba(150,80,255,.6);}\n.shm-drip{position:absolute;top:calc(clamp(20px,2.6vw,36px)*1.05);width:5px;height:9px;background:#ff4d00;\n  border-radius:50% 50% 50% 50%/60% 60% 40% 40%;opacity:0;animation:shm-drip 4.2s ease-in infinite;}\n.shm-vars{position:absolute;right:14px;top:50%;transform:translateY(-50%);padding:8px 14px;border-radius:10px;\n  background:rgba(18,6,28,.72);border:1px solid #6b2fa0;box-shadow:0 0 14px rgba(120,40,200,.35);\n  font-size:15px;line-height:1.55;min-width:250px;}\n.shm-vars b{font-weight:normal;color:#ff9a3c;}\n.shm-vars span{color:#efe6ff;letter-spacing:.5px;}\n/* bat */\n.shm-bat{position:absolute;width:54px;height:34px;left:-10%;top:40%;z-index:5;animation:shm-batpath 64s linear infinite;}\n.shm-bat-fly{position:absolute;inset:0;animation:shm-pose-fly 64s step-end infinite;filter:drop-shadow(0 0 3px rgba(255,117,24,.8));}\n.shm-bat-fly svg{animation:shm-bob .9s ease-in-out infinite alternate;}\n.shm-wing{transform-box:fill-box;transform-origin:50% 70%;animation:shm-flap .2s ease-in-out infinite alternate;}\n.shm-bat-sleep{position:absolute;left:16px;top:0;width:22px;height:34px;opacity:0;animation:shm-pose-sleep 64s step-end infinite;}\n.shm-bat-sleep svg{transform-origin:50% 0;animation:shm-sway 3.2s ease-in-out infinite alternate;filter:drop-shadow(0 0 3px rgba(255,117,24,.7));}\n.shm-z{position:absolute;left:30px;top:18px;font-size:13px;color:#c9a0ff;opacity:0;animation:shm-z 2.4s ease-out infinite;}\n.shm-z.z2{animation-delay:.8s;font-size:11px;} .shm-z.z3{animation-delay:1.6s;font-size:9px;}\n/* ghost */\n.shm-ghost{position:absolute;width:60px;height:70px;left:-15%;top:20%;opacity:0;z-index:6;animation:shm-ghostpath 90s ease-in-out infinite;}\n.shm-ghost-inner{width:100%;height:100%;animation:shm-bob 1.6s ease-in-out infinite alternate;filter:drop-shadow(0 0 10px rgba(200,215,255,.7));}\n.shm-cute{animation:shm-cute 90s step-end infinite;}\n.shm-scary{opacity:0;animation:shm-scary 90s step-end infinite;}\n.shm-boo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.2);z-index:7;font-family:'Nosifer',cursive;\n  font-size:54px;color:#ff1a1a;text-shadow:0 0 12px #ff0000,0 0 30px #7a0000;opacity:0;animation:shm-boo 90s linear infinite;pointer-events:none;}\n.shm-flash{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;\n  background:radial-gradient(ellipse at center,rgba(120,0,0,.15),rgba(60,0,0,.85));animation:shm-flash 90s linear infinite;}\n\n@keyframes shm-twinkle{0%,100%{opacity:.75}50%{opacity:.4}}\n@keyframes shm-fog{from{transform:translateX(0)}to{transform:translateX(-50%)}}\n@keyframes shm-glow{0%{opacity:.85}12%{opacity:.6}20%{opacity:.95}33%{opacity:.7}47%{opacity:1}58%{opacity:.65}71%{opacity:.9}86%{opacity:.75}100%{opacity:.85}}\n@keyframes shm-flicker{0%{opacity:1}8%{opacity:.72}11%{opacity:.95}23%{opacity:.8}31%{opacity:1}44%{opacity:.6}47%{opacity:.9}62%{opacity:.78}70%{opacity:1}83%{opacity:.68}88%{opacity:.95}100%{opacity:1}}\n@keyframes shm-drip{0%{transform:translateY(0) scaleY(.4);opacity:0}12%{opacity:1;transform:translateY(0) scaleY(1)}70%{opacity:.9;transform:translateY(34px) scaleY(1.3)}82%,100%{opacity:0;transform:translateY(44px)}}\n@keyframes shm-flap{from{transform:scaleY(1)}to{transform:scaleY(.25)}}\n@keyframes shm-bob{from{transform:translateY(-3px)}to{transform:translateY(3px)}}\n@keyframes shm-sway{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}\n@keyframes shm-z{0%{opacity:0;transform:translate(0,0)}25%{opacity:1}100%{opacity:0;transform:translate(14px,-16px)}}\n\n/* Bat flight plan, 64s loop:\n   0-10s loop around -> 10-18s sleep hanging at 30% -> 19-27s goofy zig-zag + loop-de-loop\n   -> 27-35s fly up, swoop close and get HUGE -> 35-45s cruise -> 45-52s sleep at 88% -> exit right */\n@keyframes shm-batpath{\n  0%{left:-10%;top:45%;transform:scale(1) rotate(0)}\n  3%{left:8%;top:18%;transform:rotate(-10deg)}\n  6%{left:24%;top:60%;transform:rotate(8deg)}\n  9%{left:44%;top:22%;transform:rotate(-6deg)}\n  12.5%{left:36%;top:30%;transform:rotate(0)}\n  15.6%{left:30%;top:0%;transform:rotate(0)}\n  28.1%{left:30%;top:0%;transform:rotate(0)}\n  29.7%{left:32%;top:35%;transform:rotate(0)}\n  31.5%{left:75%;top:55%;transform:rotate(15deg)}\n  33.3%{left:20%;top:30%;transform:rotate(-15deg)}\n  35.1%{left:70%;top:60%;transform:rotate(15deg)}\n  36.9%{left:25%;top:25%;transform:rotate(-15deg)}\n  39%{left:48%;top:45%;transform:rotate(0)}\n  41%{left:52%;top:30%;transform:rotate(360deg)}\n  42.2%{left:50%;top:5%;transform:scale(.8) rotate(360deg)}\n  45.3%{left:46%;top:-5%;transform:scale(.6) rotate(360deg)}\n  48.4%{left:46%;top:35%;transform:scale(7) rotate(360deg)}\n  51.6%{left:46%;top:35%;transform:scale(7.5) rotate(372deg)}\n  54.7%{left:60%;top:55%;transform:scale(1) rotate(360deg)}\n  58%{left:80%;top:20%;transform:scale(1) rotate(350deg)}\n  61%{left:62%;top:65%;transform:scale(1) rotate(370deg)}\n  64.5%{left:92%;top:40%;transform:scale(1) rotate(360deg)}\n  67.2%{left:86%;top:15%;transform:scale(1) rotate(360deg)}\n  70.3%{left:88%;top:0%;transform:scale(1) rotate(360deg)}\n  81.2%{left:88%;top:0%;transform:scale(1) rotate(360deg)}\n  85%{left:72%;top:55%;transform:rotate(350deg)}\n  89%{left:95%;top:30%;transform:rotate(370deg)}\n  93.7%{left:112%;top:45%;transform:rotate(360deg)}\n  100%{left:112%;top:45%;transform:rotate(360deg)}}\n@keyframes shm-pose-fly{0%{opacity:1}15.6%{opacity:0}28.1%{opacity:1}70.3%{opacity:0}81.2%{opacity:1}}\n@keyframes shm-pose-sleep{0%{opacity:0}15.6%{opacity:1}28.1%{opacity:0}70.3%{opacity:1}81.2%{opacity:0}}\n\n/* Ghost, 90s loop: drift L->R (15-29%), drift R->L (45-57%), then the SCARE (79-85%) */\n@keyframes shm-ghostpath{\n  0%,14%{left:-15%;top:20%;opacity:0;transform:scale(1)}\n  15%{left:-12%;top:25%;opacity:.8;transform:scale(1)}\n  18%{left:15%;top:38%;opacity:.8}\n  21%{left:40%;top:12%;opacity:.75}\n  24%{left:65%;top:40%;opacity:.8}\n  27%{left:90%;top:18%;opacity:.75}\n  28.5%{left:112%;top:25%;opacity:.8;transform:scale(1)}\n  29%{left:112%;opacity:0;transform:scale(1)}\n  44%{left:112%;top:30%;opacity:0;transform:scaleX(-1)}\n  45%{left:108%;top:30%;opacity:.8;transform:scaleX(-1)}\n  48%{left:75%;top:45%;transform:scaleX(-1)}\n  51%{left:50%;top:8%;transform:scaleX(-1)}\n  54%{left:25%;top:40%;transform:scaleX(-1)}\n  57%{left:-15%;top:25%;opacity:.8;transform:scaleX(-1)}\n  57.5%{left:-15%;opacity:0;transform:scale(1)}\n  78%{left:46%;top:115%;opacity:0;transform:scale(1)}\n  79%{left:46%;top:85%;opacity:.9;transform:scale(1)}\n  81.5%{left:46%;top:35%;opacity:.9;transform:scale(1.3)}\n  82.4%{left:46%;top:30%;opacity:1;transform:scale(1.3)}\n  82.8%{left:46%;top:25%;opacity:1;transform:scale(5)}\n  84.5%{left:46%;top:25%;opacity:1;transform:scale(5.4)}\n  85.2%{left:46%;top:25%;opacity:0;transform:scale(7)}\n  100%{left:-15%;top:20%;opacity:0;transform:scale(1)}}\n@keyframes shm-cute{0%{opacity:1}82.4%{opacity:0}85.2%{opacity:1}}\n@keyframes shm-scary{0%{opacity:0}82.4%{opacity:1}85.2%{opacity:0}}\n@keyframes shm-boo{0%,82.6%{opacity:0;transform:translate(-50%,-50%) scale(.2)}83%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}\n  84.5%{opacity:1;transform:translate(-50%,-50%) scale(1)}85.2%,100%{opacity:0;transform:translate(-50%,-50%) scale(1.6)}}\n@keyframes shm-flash{0%,82.4%{opacity:0}83%{opacity:1}84.6%{opacity:.8}86%,100%{opacity:0}}\n@keyframes shm-shake{0%,82.6%{transform:translate(0,0)}82.9%{transform:translate(-5px,2px)}83.2%{transform:translate(5px,-2px)}\n  83.5%{transform:translate(-4px,-3px)}83.8%{transform:translate(4px,3px)}84.1%{transform:translate(-3px,1px)}84.4%{transform:translate(2px,-1px)}84.7%,100%{transform:translate(0,0)}}\n@media (prefers-reduced-motion:reduce){.shm *{animation:none!important}}\n</style>\n\n<div class=\"shm\">\n  <div class=\"shm-stars\"></div>\n  <div class=\"shm-moon\"></div>\n  <div class=\"shm-fog\"></div><div class=\"shm-fog b\"></div>\n\n  <div class=\"shm-stage\">\n    <div class=\"shm-pglow\"></div>\n    <svg class=\"shm-pumpkin\" viewBox=\"0 0 120 100\" aria-label=\"jack-o'-lantern\">\n      <defs>\n        <radialGradient id=\"shm-fire\" cx=\"50%\" cy=\"60%\" r=\"60%\">\n          <stop offset=\"0%\" stop-color=\"#fff7b0\"/><stop offset=\"45%\" stop-color=\"#ffc93c\"/><stop offset=\"100%\" stop-color=\"#ff7a00\"/>\n        </radialGradient>\n        <filter id=\"shm-candle\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n          <feGaussianBlur stdDeviation=\"1.6\" result=\"b\"/><feMerge><feMergeNode in=\"b\"/><feMergeNode in=\"SourceGraphic\"/></feMerge>\n        </filter>\n      </defs>\n      <path d=\"M57 20 C56 10 61 4 69 5 C65 9 63 13 64 21 Z\" fill=\"#4f7a2c\" stroke=\"#2c4a17\" stroke-width=\"1.5\"/>\n      <ellipse cx=\"60\" cy=\"60\" rx=\"55\" ry=\"38\" fill=\"#c9500b\" stroke=\"#8a3306\" stroke-width=\"2\"/>\n      <ellipse cx=\"60\" cy=\"60\" rx=\"34\" ry=\"38\" fill=\"none\" stroke=\"#933a07\" stroke-width=\"2\"/>\n      <ellipse cx=\"60\" cy=\"60\" rx=\"14\" ry=\"38\" fill=\"none\" stroke=\"#933a07\" stroke-width=\"2\"/>\n      <ellipse cx=\"44\" cy=\"40\" rx=\"12\" ry=\"5\" fill=\"#ff9a4d\" opacity=\".35\"/>\n      <g filter=\"url(#shm-candle)\">\n        <polygon class=\"shm-eye-l\" points=\"30,50 48,50 39,34\" fill=\"url(#shm-fire)\" stroke=\"#4a1500\" stroke-width=\"1.6\"/>\n        <polygon class=\"shm-eye-r\" points=\"72,50 90,50 81,34\" fill=\"url(#shm-fire)\" stroke=\"#4a1500\" stroke-width=\"1.6\"/>\n        <polygon class=\"shm-eye-l\" points=\"55,62 65,62 60,54\" fill=\"url(#shm-fire)\" stroke=\"#4a1500\" stroke-width=\"1.6\"/>\n        <path class=\"shm-mouth\" d=\"M26 68 Q60 98 94 68 L86 73 L80 67 L73 75 L66 68 L60 77 L54 68 L47 75 L40 67 L34 73 Z\" fill=\"url(#shm-fire)\" stroke=\"#4a1500\" stroke-width=\"1.6\"/>\n      </g>\n    </svg>\n\n    <div class=\"shm-title\">\n      <div class=\"shm-h\">Spooky Host Metrics</div>\n      <div class=\"shm-drip\" style=\"left:9%\"></div>\n      <div class=\"shm-drip\" style=\"left:47%;animation-delay:1.5s\"></div>\n      <div class=\"shm-drip\" style=\"left:83%;animation-delay:2.8s\"></div>\n      <div class=\"shm-sub\">where CPUs scream, memory moans &amp; disks rattle their chains</div>\n    </div>\n\n    <div class=\"shm-vars\">\n      <div><b>&#129415; Haunted Host:</b> <span>${host:text}</span></div>\n      <div><b>&#9904;&#65039; Crypt of Data:</b> <span>${datasource:text}</span></div>\n      <div><b>&#128367;&#65039; Witching Window:</b> <span>${__from:date:HH:mm} &rarr; ${__to:date:HH:mm}</span></div>\n    </div>\n  </div>\n\n  <div class=\"shm-bat\">\n    <div class=\"shm-bat-fly\">\n      <svg viewBox=\"0 0 100 50\" width=\"54\" height=\"27\">\n        <path class=\"shm-wing\" d=\"M50 22 C40 8 22 4 4 14 C10 16 12 22 10 28 C16 24 22 26 24 32 C28 26 36 26 40 32 C42 26 46 24 50 26 Z\" fill=\"#1b0f24\" stroke=\"#4a2a66\" stroke-width=\"1\"/>\n        <path class=\"shm-wing\" d=\"M50 22 C60 8 78 4 96 14 C90 16 88 22 90 28 C84 24 78 26 76 32 C72 26 64 26 60 32 C58 26 54 24 50 26 Z\" fill=\"#1b0f24\" stroke=\"#4a2a66\" stroke-width=\"1\"/>\n        <ellipse cx=\"50\" cy=\"29\" rx=\"6\" ry=\"10\" fill=\"#1b0f24\"/>\n        <circle cx=\"50\" cy=\"19\" r=\"6\" fill=\"#1b0f24\"/>\n        <polygon points=\"45,15 44,7 48.5,13\" fill=\"#1b0f24\"/><polygon points=\"55,15 56,7 51.5,13\" fill=\"#1b0f24\"/>\n        <circle cx=\"47.8\" cy=\"18.5\" r=\"1.3\" fill=\"#ffcc00\"/><circle cx=\"52.2\" cy=\"18.5\" r=\"1.3\" fill=\"#ffcc00\"/>\n        <polygon points=\"48.6,22.5 49.4,22.5 49,24.6\" fill=\"#fff\"/><polygon points=\"50.6,22.5 51.4,22.5 51,24.6\" fill=\"#fff\"/>\n      </svg>\n    </div>\n    <div class=\"shm-bat-sleep\">\n      <svg viewBox=\"0 0 40 60\" width=\"22\" height=\"33\">\n        <line x1=\"17\" y1=\"0\" x2=\"18\" y2=\"7\" stroke=\"#1b0f24\" stroke-width=\"2\"/><line x1=\"23\" y1=\"0\" x2=\"22\" y2=\"7\" stroke=\"#1b0f24\" stroke-width=\"2\"/>\n        <path d=\"M20 6 C31 8 33 30 27 43 C25 47 15 47 13 43 C7 30 9 8 20 6 Z\" fill=\"#1b0f24\" stroke=\"#4a2a66\" stroke-width=\"1\"/>\n        <circle cx=\"20\" cy=\"47\" r=\"6\" fill=\"#1b0f24\"/>\n        <polygon points=\"15.5,51 14,59 18.5,52.5\" fill=\"#1b0f24\"/><polygon points=\"24.5,51 26,59 21.5,52.5\" fill=\"#1b0f24\"/>\n        <path d=\"M16 46 q2 1.6 4 0 M20.5 46 q2 1.6 4 0\" stroke=\"#ffcc00\" stroke-width=\"1\" fill=\"none\"/>\n      </svg>\n      <div class=\"shm-z\">z</div><div class=\"shm-z z2\">z</div><div class=\"shm-z z3\">z</div>\n    </div>\n  </div>\n\n  <div class=\"shm-ghost\"><div class=\"shm-ghost-inner\">\n    <svg viewBox=\"0 0 60 70\" width=\"60\" height=\"70\">\n      <path d=\"M30 4 C14 4 6 16 6 32 L6 62 L13 55 L20 63 L27 55 L34 63 L41 55 L48 63 L54 56 L54 32 C54 16 46 4 30 4 Z\" fill=\"rgba(238,240,255,.92)\"/>\n      <g class=\"shm-cute\">\n        <ellipse cx=\"22\" cy=\"28\" rx=\"3.2\" ry=\"4.2\" fill=\"#1b0f24\"/><ellipse cx=\"38\" cy=\"28\" rx=\"3.2\" ry=\"4.2\" fill=\"#1b0f24\"/>\n        <ellipse cx=\"30\" cy=\"40\" rx=\"3\" ry=\"3.8\" fill=\"#1b0f24\"/>\n      </g>\n      <g class=\"shm-scary\">\n        <polygon points=\"16,23 27,28 17,32\" fill=\"#ff1a1a\"/><polygon points=\"44,23 33,28 43,32\" fill=\"#ff1a1a\"/>\n        <path d=\"M17 37 L21 51 L25 42 L30 54 L35 42 L39 51 L43 37 Q30 33 17 37 Z\" fill=\"#12060f\"/>\n      </g>\n    </svg>\n  </div></div>\n\n  <div class=\"shm-flash\"></div>\n  <div class=\"shm-boo\">BOO!</div>\n</div>\n",
+        "mode": "html"
+      },
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 1,
+      "panels": [],
+      "title": "Host at a glance",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 0,
+        "y": 6
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "100 - (avg(rate(windows_cpu_time_total{instance=~\"$host\",mode=\"idle\"}[5m])) * 100)",
+          "legendFormat": "CPU Busy",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Busy",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 92
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 5,
+        "y": 6
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "100 * (1 - windows_memory_available_bytes{instance=~\"$host\"} / windows_memory_physical_total_bytes{instance=~\"$host\"})",
+          "legendFormat": "Memory Used",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Memory Used",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 25
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 10,
+        "y": 6
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "100 * windows_logical_disk_free_bytes{instance=~\"$host\",volume=\"C:\"} / windows_logical_disk_size_bytes{instance=~\"$host\",volume=\"C:\"}",
+          "legendFormat": "C: Free",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "C: Free",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 5,
+        "x": 15,
+        "y": 6
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_system_processes{instance=~\"$host\"}",
+          "legendFormat": "Processes",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Processes",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dtdurations"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 6
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "time() - windows_system_boot_time_timestamp{instance=~\"$host\"}",
+          "legendFormat": "Uptime",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Uptime",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 7,
+      "panels": [],
+      "title": "CPU",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 11
+      },
+      "id": 8,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "100 - (avg(rate(windows_cpu_time_total{instance=~\"$host\",mode=\"idle\"}[5m])) * 100)",
+          "legendFormat": "busy",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Busy %",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 11
+      },
+      "id": 9,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "avg by (mode) (rate(windows_cpu_time_total{instance=~\"$host\",mode!=\"idle\"}[5m])) * 100",
+          "legendFormat": "{{mode}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Time by Mode",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 0,
+        "y": 19
+      },
+      "id": 10,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_system_processor_queue_length{instance=~\"$host\"}",
+          "legendFormat": "queue",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Processor Queue Length",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 8,
+        "y": 19
+      },
+      "id": 11,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_system_context_switches_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "ctx/s",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Context Switches /s",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 16,
+        "y": 19
+      },
+      "id": 12,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_system_system_calls_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "calls/s",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "System Calls /s",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 13,
+      "panels": [],
+      "title": "Memory",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 26
+      },
+      "id": 14,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_memory_physical_total_bytes{instance=~\"$host\"} - windows_memory_available_bytes{instance=~\"$host\"}",
+          "legendFormat": "used",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_memory_available_bytes{instance=~\"$host\"}",
+          "legendFormat": "available",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Memory Used vs Available",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 26
+      },
+      "id": 15,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_memory_committed_bytes{instance=~\"$host\"}",
+          "legendFormat": "committed",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_memory_commit_limit{instance=~\"$host\"}",
+          "legendFormat": "limit",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Committed vs Commit Limit",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 34
+      },
+      "id": 16,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_memory_page_faults_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "page faults",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_memory_cache_faults_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "cache faults",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Page Faults /s",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 34
+      },
+      "id": 17,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_memory_cache_bytes{instance=~\"$host\"}",
+          "legendFormat": "cache",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_memory_pool_paged_bytes{instance=~\"$host\"}",
+          "legendFormat": "paged pool",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_memory_pool_nonpaged_bytes{instance=~\"$host\"}",
+          "legendFormat": "nonpaged pool",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Cache & Pools",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 40
+      },
+      "id": 18,
+      "panels": [],
+      "title": "Disk",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 41
+      },
+      "id": 19,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_logical_disk_free_bytes{instance=~\"$host\"}",
+          "legendFormat": "{{volume}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Free Space by Volume",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 10
+              },
+              {
+                "color": "green",
+                "value": 25
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 41
+      },
+      "id": 20,
+      "options": {
+        "displayMode": "gradient",
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "100 * windows_logical_disk_free_bytes{instance=~\"$host\"} / windows_logical_disk_size_bytes{instance=~\"$host\"}",
+          "legendFormat": "{{volume}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Free % by Volume",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 49
+      },
+      "id": 21,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_logical_disk_read_bytes_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "read {{volume}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_logical_disk_write_bytes_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "write {{volume}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Disk Throughput",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 49
+      },
+      "id": 22,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_logical_disk_avg_read_requests_queued{instance=~\"$host\"}",
+          "legendFormat": "read q {{volume}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "windows_logical_disk_avg_write_requests_queued{instance=~\"$host\"}",
+          "legendFormat": "write q {{volume}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Disk Queue",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 57
+      },
+      "id": 23,
+      "panels": [],
+      "title": "Network",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 58
+      },
+      "id": 24,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_net_bytes_received_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "in {{nic}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_net_bytes_sent_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "out {{nic}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Network Throughput",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "lineWidth": 1,
+            "showPoints": "never",
+            "spanNulls": true
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 58
+      },
+      "id": 25,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_net_packets_outbound_discarded_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "out discard {{nic}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_net_packets_received_discarded_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "in discard {{nic}}",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_net_packets_received_errors_total{instance=~\"$host\"}[5m])",
+          "legendFormat": "in errors {{nic}}",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Errors & Discards /s",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "tags": [
+    "halloween",
+    "host",
+    "themed",
+    "windows"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "Prometheus",
+          "value": "prometheus"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "⚰️ Crypt of Data",
+        "multi": false,
+        "name": "datasource",
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(windows_cpu_time_total, instance)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "🦇 Haunted Host",
+        "multi": true,
+        "name": "host",
+        "query": {
+          "qryType": 1,
+          "query": "label_values(windows_cpu_time_total, instance)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timezone": "browser",
+  "title": "Spooky Host Metrics",
+  "uid": "windows-host-spooky",
+  "version": 1
+}
